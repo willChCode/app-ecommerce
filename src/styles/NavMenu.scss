@@ -1,0 +1,145 @@
+.nav {
+  width: 100%;
+  background-color: #1f2937;
+  color: white;
+  height: 10vh;
+
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  padding: 0 20px;
+
+  // .nav-items1 {
+  // border: 1px solid white;
+  // }
+  .nav-items2 {
+    // border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  .nav-items3 {
+    display: flex;
+
+    .menuH {
+      // border: 1px solid white;
+      width: 26px;
+      height: 30px;
+      cursor: pointer;
+
+      span {
+        width: 100%;
+        height: 2px;
+        display: block;
+        background-color: white;
+
+        margin-top: 6px;
+        transform-origin: 0px 100%;
+        transition: all 0.3s;
+      }
+      .active1 {
+        transform: rotate(45deg) translate(-2px, 1px);
+      }
+      .active3 {
+        transform: rotate(-45deg) translate(-2px, 0.5px);
+      }
+      .active2 {
+        opacity: 0;
+        margin-left: -20px;
+      }
+    }
+  }
+  .nav-items4 {
+    position: fixed;
+    background-color: #1f2937;
+    width: 100%;
+    top: 10vh;
+    left: 100%;
+    height: calc(100vh - 10vh);
+    transition: 0.5s;
+
+    .list {
+      width: 100%;
+      height: 100vh;
+      // border: 1px solid blue;
+
+      display: flex;
+      flex-direction: column;
+      place-content: center;
+
+      .list-item {
+        color: white;
+        text-decoration: none;
+        cursor: pointer;
+        // border: 1px solid white;
+
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        overflow: hidden;
+
+        a {
+          color: white;
+          display: block;
+          padding: 8px 0;
+          // border: 1px solid blue;
+          text-align: center;
+        }
+        .li-button {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 0 10px;
+          gap: 1em;
+          width: 85%;
+          margin: 0 auto;
+          // border: 1px solid green;
+
+          .lib-search {
+            text-align: center;
+            border: 1px solid white;
+            margin: 0 auto;
+            position: relative;
+            margin-bottom: 20px;
+
+            input {
+              border: 0;
+              outline: none;
+              padding: 0 1rem;
+              height: 37px;
+            }
+            i {
+              position: absolute;
+              right: 10px;
+              top: 0;
+              color: black;
+              line-height: 37px;
+            }
+          }
+        }
+        // javascript rotando el icono
+        .arrow .lib-icon {
+          transform: rotate(90deg);
+          transition: 0.5s;
+        }
+        .lis-inside:hover {
+          background: rgb(97, 101, 121);
+        }
+        .li-show {
+          width: 100%;
+          margin-left: auto;
+          // border-left: 2px solid black;
+          transition: height 0.4s;
+          height: 0;
+        }
+      }
+    }
+  }
+  .active_show {
+    left: 50%;
+    transition: 0.5s;
+  }
+  .nav-items5 {
+    display: none;
+  }
+}
