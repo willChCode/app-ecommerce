@@ -1,21 +1,19 @@
 import Link from 'next/link'
+import { useRef } from 'react'
 
 export function NavMenu() {
   //menu Hamburguesa
+  const line1 = useRef<HTMLSpanElement>(null);
+  const line2 = useRef<HTMLSpanElement>(null);
+  const line3 = useRef<HTMLSpanElement>(null);
+  const menuContent = useRef<HTMLElement>(null);
 
-  // const line1 = document.querySelector('.line1') as HTMLSpanElement
-  // const line2 = document.querySelector('.line2') as HTMLSpanElement
-  // const line3 = document.querySelector('.line3') as HTMLSpanElement
-
-  // const menu = document.querySelector('.menuH') as HTMLDivElement
-  // const menuContent = document.querySelector('.nav-items4') as HTMLElement
-
-  // menu.addEventListener('click', () => {
-  //   line1.classList.toggle('active1')
-  //   line2.classList.toggle('active2')
-  //   line3.classList.toggle('active3')
-  //   menuContent.classList.toggle('active_show')
-  // })
+  const handleMenu = () => {
+    line1.current?.classList.toggle('active1');
+    line2.current?.classList.toggle('active2');
+    line3.current?.classList.toggle('active3');
+    menuContent.current?.classList.toggle('active_show')
+  }
 
   return (
     <nav className='nav'>
@@ -36,13 +34,13 @@ export function NavMenu() {
         <i className='cart fa-solid fa-cart-shopping'></i>
       </section>
       <section className='nav-items3'>
-        <div className='menuH'>
-          <span className='line1'></span>
-          <span className='line2'></span>
-          <span className='line3'></span>
+        <div className='menuH' onClick={handleMenu}>
+          <span className='line1' ref={line1}></span>
+          <span className='line2' ref={line2}></span>
+          <span className='line3' ref={line3}></span>
         </div>
       </section>
-      <section className='nav-items4'>
+      <section className='nav-items4' ref={menuContent}>
         <ul className='list'>
           <li className='list-item'>
             <div className='li-button'>
