@@ -1,8 +1,9 @@
+import classNames from 'classnames';
 import Link from 'next/link'
+import { useState } from 'react';
 import { useRef } from 'react'
-
+import { Tab } from '@headlessui/react';
 export function NavMenu() {
-  //menu Hamburguesa
   const line1 = useRef<HTMLSpanElement>(null);
   const line2 = useRef<HTMLSpanElement>(null);
   const line3 = useRef<HTMLSpanElement>(null);
@@ -15,15 +16,30 @@ export function NavMenu() {
     menuContent.current?.classList.toggle('active_show')
   }
 
+  const [isPressed, setIsPressed] = useState<boolean>(false);
+
   return (
     <nav className='nav'>
       <section className='nav-items1'>
-        <h1>LOGO</h1>
+        <h1 className={classNames({
+          'text-red-500': isPressed
+        })} onClick={() => setIsPressed(!isPressed)}>LOGO</h1>
       </section>
       <section className='nav-items2'>
-        <h3>Mans</h3>
-        <h3>Womans</h3>
-        <h3>Kids</h3>
+        <Tab.Group>
+          <Tab.List className="flex space-x-1 rounded-xl">
+            {['Mans', 'Womans', 'Kids'].map(gender => (
+              <Tab
+                key={gender}
+                className={({ selected }) =>
+                  `mx-1 p-1 rounded-lg py-2.5 text-sm font-medium leading-5 text-white-700 focus:outline-none
+                  ${selected ? 'bg-slate-700 transition-all shadow' : 'text-blue-100 hover:bg-white/[0.12] hover:rounded-md'}`}
+              >
+                {gender}
+              </Tab>
+            ))}
+          </Tab.List>
+        </Tab.Group>
       </section>
       <section className='nav-items5'>
         <section className='lib-search'>
