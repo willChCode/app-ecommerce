@@ -1,0 +1,12 @@
+.nav {
+  border: 1px solid black;
+  width: 100%;
+  height: auto;
+  background-color: #17120f;
+  color: white;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
